@@ -9,6 +9,10 @@
 # the `default_ratings_paths` globs, which are used during analysis to determine
 # which files should be rated.
 #
+apexmetrics:
+  image: codeclimate/codeclimate-apexmetrics
+  description: ApexMetrix is a static code analysis tool for Salesforce.com Apex.
+  community: true
 brakeman:
   image: codeclimate/codeclimate-brakeman
   description: Static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
