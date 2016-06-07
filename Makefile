@@ -5,7 +5,7 @@ SKIP_ENGINES ?= 0
 
 image:
 	docker pull "$(shell grep FROM Dockerfile | sed 's/FROM //')"
-	docker build -t codeclimate/codeclimate .
+	docker build -t itachi1706/codeclimate .
 
 test: RSPEC_ARGS ?= --tag ~slow
 test: image
@@ -13,14 +13,14 @@ test: image
 	  --entrypoint bundle \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
 	  --workdir /usr/src/app \
-	  codeclimate/codeclimate exec rspec $(RSPEC_ARGS)
+	  itachi1706/codeclimate exec rspec $(RSPEC_ARGS)
 
 test_all: image
 	docker run --rm -it \
 	  --entrypoint bundle \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
 	  --workdir /usr/src/app \
-	  codeclimate/codeclimate exec rake spec:all spec:benchmark
+	  itachi1706/codeclimate exec rake spec:all spec:benchmark
 
 citest:
 	docker rm codeclimate-cli-test || true
@@ -29,7 +29,7 @@ citest:
 	  --entrypoint sh \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
 	  --workdir /usr/src/app \
-	  codeclimate/codeclimate -c "bundle exec rake spec:all"
+	  itachi1706/codeclimate -c "bundle exec rake spec:all"
 	mkdir -p coverage
 	docker cp codeclimate-cli-test:/usr/src/app/coverage/. ./coverage/
 	./cc-test-reporter after-build --prefix /usr/src/app/
@@ -37,11 +37,11 @@ citest:
 	  --entrypoint sh \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
 	  --workdir /usr/src/app \
-	  codeclimate/codeclimate -c "bundle exec rake spec:benchmark"
+	  itachi1706/codeclimate -c "bundle exec rake spec:benchmark"
 
 install:
 	bin/check
-	docker pull codeclimate/codeclimate:latest
+	docker pull itachi1706/codeclimate:latest
 	@[ $(SKIP_ENGINES) -eq 1 ] || \
 	  docker images | \
 	  awk '/codeclimate\/codeclimate-/ { print $$1 }' | \
@@ -51,11 +51,11 @@ install:
 
 uninstall:
 	$(RM) $(DESTDIR)$(PREFIX)/bin/codeclimate
-	docker rmi codeclimate/codeclimate:latest
+	docker rmi itachi1706/codeclimate:latest
 
 bundle:
 	docker run --rm \
 	  --entrypoint bundle \
 	  --volume $(PWD):/usr/src/app \
 	  --workdir /usr/src/app \
-	  codeclimate/codeclimate $(BUNDLE_ARGS)
+	  itachi1706/codeclimate $(BUNDLE_ARGS)

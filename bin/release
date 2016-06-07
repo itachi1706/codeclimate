@@ -26,16 +26,16 @@ printf "########################################################################
 printf "\n\n"
 rake release
 
-docker build --rm --tag codeclimate/codeclimate .
-docker push codeclimate/codeclimate:latest
-docker tag codeclimate/codeclimate "codeclimate/codeclimate:$version"
-docker push "codeclimate/codeclimate:$version"
+docker build --rm --tag itachi1706/codeclimate .
+docker push itachi1706/codeclimate:latest
+docker tag itachi1706/codeclimate "itachi1706/codeclimate:$version"
+docker push "itachi1706/codeclimate:$version"
 
 (cd ../homebrew-formulae/ && bin/release "$version")
 
 cat <<EOM
 Be sure to update release notes:
 
-  https://github.com/codeclimate/codeclimate/releases/new?tag=v$version
+  https://github.com/itachi1706/codeclimate/releases/new?tag=v$version
 
 EOM

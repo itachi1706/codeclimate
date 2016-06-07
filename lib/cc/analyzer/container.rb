@@ -23,7 +23,7 @@ module CC
     # Never raises (unless broken)
     #
     class Container
-      DEFAULT_TIMEOUT = 15 * 60 # 15m
+      DEFAULT_TIMEOUT = 120 * 60 # 2h
       DEFAULT_MAXIMUM_OUTPUT_BYTES = 500_000_000
 
       def initialize(image:, name:, command: nil)

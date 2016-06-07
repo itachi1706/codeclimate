@@ -2,6 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 [![CircleCI](https://circleci.com/gh/codeclimate/codeclimate.svg?style=svg)](https://circleci.com/gh/codeclimate/codeclimate)
+[![Code Climate Forked](https://codeclimate.com/github/itachi1706/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/itachi1706/codeclimate)
 
 ## Overview
 
@@ -52,7 +53,7 @@ In some cases you may want to run the docker image directly.
 To pull the docker image:
 
 ```console
-docker pull codeclimate/codeclimate
+docker pull itachi1706/codeclimate
 ```
 
 To invoke the CLI via Docker:
@@ -64,7 +65,7 @@ docker run \
   --volume "$PWD":/code \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /tmp/cc:/tmp/cc \
-  codeclimate/codeclimate help
+  itachi1706/codeclimate help
 ```
 
 ## Project setup
