@@ -1,6 +1,6 @@
 # Code Climate CLI<br>
 
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+[![Code Climate](https://codeclimate.com/github/itachi1706/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/itachi1706/codeclimate)
 
 ## Overview
 
@@ -21,7 +21,7 @@ On OS X, we recommend using [Docker Machine](https://docs.docker.com/machine/).
 ## Installation
 
 ```console
-docker pull codeclimate/codeclimate
+docker pull itachi1706/codeclimate
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ docker run \
   --volume "$PWD":/code \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /tmp/cc:/tmp/cc \
-  codeclimate/codeclimate help
+  itachi1706/codeclimate help
 ```
 
 ## Packages
@@ -62,7 +62,7 @@ brew upgrade codeclimate
 ### Anywhere
 
 ```console
-curl -L https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
+curl -L https://github.com/itachi1706/codeclimate/archive/master.tar.gz | tar xvz
 cd codeclimate-* && sudo make install
 ```
 

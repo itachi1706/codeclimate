@@ -4,13 +4,13 @@ PREFIX ?= /usr/local
 SKIP_ENGINES ?= 0
 
 image:
-	docker build -t codeclimate/codeclimate .
+	docker build -t itachi1706/codeclimate .
 
 test: image
 	docker run --rm \
 	  --entrypoint bundle \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
-	  codeclimate/codeclimate exec rake spec:all spec:benchmark
+	  itachi1706/codeclimate exec rake spec:all spec:benchmark
 
 citest:
 	docker run \
@@ -23,11 +23,11 @@ citest:
 	  --volume $(PWD)/.git:/usr/src/app/.git:ro \
 	  --volume /var/run/docker.sock:/var/run/docker.sock \
 	  --volume $(CIRCLE_TEST_REPORTS):/usr/src/app/spec/reports \
-	  codeclimate/codeclimate exec rake spec:all spec:benchmark
+	  itachi1706/codeclimate exec rake spec:all spec:benchmark
 
 install:
 	bin/check
-	docker pull codeclimate/codeclimate:latest
+	docker pull itachi1706/codeclimate:latest
 	@[ $(SKIP_ENGINES) -eq 1 ] || \
 	  docker images | \
 	  awk '/codeclimate\/codeclimate-/ { print $$1 }' | \
@@ -37,4 +37,4 @@ install:
 
 uninstall:
 	$(RM) $(DESTDIR)$(PREFIX)/bin/codeclimate
-	docker rmi codeclimate/codeclimate:latest
+	docker rmi itachi1706/codeclimate:latest

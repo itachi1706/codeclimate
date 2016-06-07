@@ -10,9 +10,9 @@ Your Docker setup does not support the codeclimate wrapper script:
 We require a local Docker daemon that supports communication via the default
 socket path.
 
-Please use \`docker run' to run the \`codeclimate/codeclimate' image directly.
+Please use \`docker run' to run the \`itachi1706/codeclimate' image directly.
 
-See https://github.com/codeclimate/codeclimate for more details.
+See https://github.com/itachi1706/codeclimate for more details.
 
 EOF
   exit 1
@@ -62,7 +62,7 @@ if [ -z "$CODECLIMATE_TMP" ]; then
 fi
 
 if [ -t 0 ] && [ -t 1 ]; then
-  docker_run --tty codeclimate/codeclimate "$@"
+  docker_run --tty itachi1706/codeclimate "$@"
 else
-  docker_run codeclimate/codeclimate "$@"
+  docker_run itachi1706/codeclimate "$@"
 fi

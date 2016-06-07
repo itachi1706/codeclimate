@@ -17,10 +17,10 @@ version=$(< VERSION)
 printf "RELEASE %s\n" "$version"
 rake release
 
-docker build --rm -t codeclimate/codeclimate .
-docker push codeclimate/codeclimate:latest
-docker tag codeclimate/codeclimate "codeclimate/codeclimate:$version"
-docker push "codeclimate/codeclimate:$version"
+docker build --rm -t itachi1706/codeclimate .
+docker push itachi1706/codeclimate:latest
+docker tag itachi1706/codeclimate "itachi1706/codeclimate:$version"
+docker push "itachi1706/codeclimate:$version"
 
 (cd ../homebrew-formulae/ && bin/release "$version")
 (cd ../marketingsite/ && bin/set-cli-version "$version" && bin/deploy) || {
@@ -33,5 +33,5 @@ EOF
 
 echo "Be sure to update release notes:"
 echo ""
-echo "  https://github.com/codeclimate/codeclimate/releases/new?tag=v$version"
+echo "  https://github.com/itachi1706/codeclimate/releases/new?tag=v$version"
 echo ""

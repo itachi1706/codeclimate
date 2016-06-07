@@ -7,8 +7,8 @@ module CC::Analyzer
         timeout_ex = Class.new(StandardError)
         listener = RaisingContainerListener.new("engine", nil, timeout_ex)
 
-        expect { listener.timed_out(double(duration: 900000)) }.to raise_error(
-          timeout_ex, /engine ran for 900 seconds/
+        expect { listener.timed_out(double(duration: 7200000)) }.to raise_error(
+          timeout_ex, /engine ran for 7200 seconds/
         )
       end
     end

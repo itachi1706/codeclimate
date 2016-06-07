@@ -15,7 +15,7 @@ following:
 - Is this an issue with a specific engine?
 
   Please report issues about a specific engine to that engine's repository. It
-  can usually be found at `codeclimate/codeclimate-<engine>`. If you can't find
+  can usually be found at `itachi1706/codeclimate-<engine>`. If you can't find
   the engine's repository (or Issues aren't enabled there), please do report
   your issue here.
 
@@ -27,7 +27,7 @@ following:
   or `docker run hello-world` fail), please try other channels (Stack Overflow,
   IRC, etc) before reporting the issue here.
 
-- Are you invoking `docker run codeclimate/codeclimate` without other options?
+- Are you invoking `docker run itachi1706/codeclimate` without other options?
 
   Invoking the CLI directly via `docker run` requires additional options to work
   correctly. That's why we ship the `codeclimate` wrapper script. Please take a
