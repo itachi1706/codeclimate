@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checking version
+      run: cat VERSION
+    - name: Login to DockerHub
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      run: echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag itachi1706/codeclimate:v$(cat VERSION)
+    - name: Push Docker Image
+      run: docker push itachi1706/codeclimate:v$(cat VERSION)
