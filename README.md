@@ -2,6 +2,8 @@
 
 [![Code Climate](https://codeclimate.com/github/itachi1706/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/itachi1706/codeclimate)
 
+If you are looking for the original code climate docker image, this is not it. Head on over to https://hub.docker.com/r/codeclimate/codeclimate/
+
 ## Overview
 
 `codeclimate` is a command line interface for the Code Climate analysis
