@@ -41,7 +41,7 @@ GEM
       slop (~> 3.4)
     rainbow (2.1.0)
     rake (10.4.2)
-    redcarpet (3.3.4)
+    redcarpet (3.5.1)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
